@@ -21,7 +21,8 @@ $.fn.simplecarousel = function( params ) {
         items: 0,
         slidespeed: 600,
         visible: 1,
-        pagination: false
+        pagination: false,
+        autoheight: false
     };
     var config = $.extend(defaults, params);
     
@@ -40,11 +41,15 @@ $.fn.simplecarousel = function( params ) {
             width = width*config.visible;
     }
     
-    ul.wrap('<div class="carousel-frame" style="width:'+width+'px;height:'+height+'px;overflow:hidden">');
+    if(config.autoheight)
+        ul.wrap('<div class="carousel-frame" style="width:'+width+'px;overflow:hidden">');
+    else
+        ul.wrap('<div class="carousel-frame" style="width:'+width+'px;height:'+height+'px;overflow:hidden">');
+
     var container = ul.parent('.carousel-frame');
     if(!config.vertical) {
         ul.width(config.items*config.width);
-        ul.height(config.height);
+        if(config.autoheight==false) ul.height(config.height);
     } else {
         ul.width(config.width);
         ul.height(config.items*config.height);
@@ -53,7 +58,7 @@ $.fn.simplecarousel = function( params ) {
     
     li.each(function(i,item) {
         $(item).width(config.width);
-        $(item).height(config.height);
+        if(config.autoheight==false) $(item).height(config.height);
         if(!config.vertical)
             $(item).css('float','left');
     });
