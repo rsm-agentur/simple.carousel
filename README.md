@@ -28,12 +28,19 @@ Insert following in the head part of your html page:
 jQuery(document).ready(function() {
 	// initialize carousel
 	$("#carousel").simplecarousel({
-		next: $('.next'),
+		width: 700,
+	        height: 500,
+	        next: $('.next'),
 		prev: $('.prev'),
-		slidespeed: 700,
-		auto: 5000,
-		width: 480,
-		height: 280
+	        vertical: false,
+	        auto: false,
+	        fade: false,
+	        current: 0,
+	        items: 0,
+	        slidespeed: 600,
+	        visible: 1,
+	        pagination: false,
+	        autoheight: false
 	});
 });
 &lt;/script&gt; 
