@@ -28,10 +28,10 @@ Insert following in the head part of your html page:
 jQuery(document).ready(function() {
 	// initialize carousel
 	$("#carousel").simplecarousel({
-		width: 700,
+	        width: 700,
 	        height: 500,
 	        next: $('.next'),
-		prev: $('.prev'),
+	        prev: $('.prev'),
 	        vertical: false,
 	        auto: false,
 	        fade: false,
